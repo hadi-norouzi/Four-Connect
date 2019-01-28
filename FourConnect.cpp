@@ -360,16 +360,16 @@ int fill(){
 
 			if(counter % 2 == 0){
 	
-				table[15][4 * column - 3] = elementPlayerOne;
-				table[15][4 * column - 2] = elementPlayerOne;
-				table[15][4 * column - 1] = elementPlayerOne;
+				table[i][4 * column - 3] = elementPlayerOne;
+				table[i][4 * column - 2] = elementPlayerOne;
+				table[i][4 * column - 1] = elementPlayerOne;
 				break;
 			}
 			else{
 	
-				table[15][4 * column - 3] = elementPlayerTwo;
-				table[15][4 * column - 2] = elementPlayerTwo;
-				table[15][4 * column - 1] = elementPlayerTwo;
+				table[i][4 * column - 3] = elementPlayerTwo;
+				table[i][4 * column - 2] = elementPlayerTwo;
+				table[i][4 * column - 1] = elementPlayerTwo;
 				break;
 			}
 		}
