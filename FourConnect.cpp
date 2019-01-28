@@ -21,10 +21,10 @@ int choosePlayerColor();
 
 enum color{
 
-	green = 10,
-	blue = 9,
-	red = 4,
-	yellow = 6,
+	green = 34,
+	blue = 17,
+	red = 68,
+	yellow = 102,
 	white = 7
 };
 
@@ -60,27 +60,28 @@ int main(){
 
 	createTable();
 
-	if(fill() == 1){
+		
+		if(fill() == 1){
+		
+			cout << "\nplayer ";
+			SetConsoleTextAttribute(hConsole, 0 | colorOfPlayerOne);
+			cout << elementPlayerOne << elementPlayerOne << elementPlayerOne;
+			SetConsoleTextAttribute(hConsole, 0 | white);
+			cout << " Winner";
+			scorePlayerOne++;
+		}
+		
+		if(fill() == 2){
 
-		cout << "\nplayer ";
-		SetConsoleTextAttribute(hConsole, 0 | colorOfPlayerOne);
-		cout << elementPlayerOne << elementPlayerOne << elementPlayerOne;
-		SetConsoleTextAttribute(hConsole, 0 | white);
-		cout << " Winner";
-		scorePlayerOne++;
-	}
-	else if(fill() == 2){
-
-		cout << "\nplayer ";
-		SetConsoleTextAttribute(hConsole, 0 | colorOfPlayerTwo);
-		cout << elementPlayerTwo << elementPlayerTwo << elementPlayerTwo ;
-		SetConsoleTextAttribute(hConsole, 0 | white);
-		cout << " Winner";
-		scorePlayerTwo++;
-	}
-
-
-
+			cout << "\nplayer ";
+			SetConsoleTextAttribute(hConsole, 0 | colorOfPlayerTwo);
+			cout << elementPlayerTwo << elementPlayerTwo << elementPlayerTwo ;
+			SetConsoleTextAttribute(hConsole, 0 | white);
+			cout << " Winner";
+			scorePlayerTwo++;
+			
+			}
+	
 	cout << "\n\n\nPlay Again ? (y/n) ";
 	cin >> answer;
 
@@ -319,10 +320,20 @@ int fill(){
 
 	int column,counter = 0;
 	char answer;
+	
+	if(horizontalCheck() == 1 || verticalCheck() == 1 || diagonalCheck() == 1){
+
+			return 1;
+	}
+	else if(horizontalCheck() == 2 || verticalCheck() == 2 || diagonalCheck() == 2){
+
+			return 2;
+	}
 
 	print();
 
 	while(1){
+		
 
 		cout << "\nEnter a column  : "; //Enter a Number of Columns
 		cin >> column;
@@ -466,15 +477,16 @@ int fill(){
 	counter++;
 	system("cls");
 	print();
-
-		if(horizontalCheck() == 1 || verticalCheck() == 1 || diagonalCheck() == 1){
+	
+	if(horizontalCheck() == 1 || verticalCheck() == 1 || diagonalCheck() == 1){
 
 			return 1;
-		}
-		else if(horizontalCheck() == 2 || verticalCheck() == 2 || diagonalCheck() == 2){
+	}
+	else if(horizontalCheck() == 2 || verticalCheck() == 2 || diagonalCheck() == 2){
 
 			return 2;
-		}
+	}
+
 	}
 }
 
