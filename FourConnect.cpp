@@ -353,127 +353,28 @@ int fill(){
 		if(answer == 'y')
 			exit(0);
 	}
+	
+	for(int i = 15 ; i > 0; i-=2){
+		
+		if( table[i][4 * column - 3] == 0){
 
-	if( table[15][4 * column - 3] == 0){
-
-		if(counter % 2 == 0){
-
-			table[15][4 * column - 3] = elementPlayerOne;
-			table[15][4 * column - 2] = elementPlayerOne;
-			table[15][4 * column - 1] = elementPlayerOne;
-		}
-		else{
-
-			table[15][4 * column - 3] = elementPlayerTwo;
-			table[15][4 * column - 2] = elementPlayerTwo;
-			table[15][4 * column - 1] = elementPlayerTwo;
-		}
-	}
-	else if( table[13][4 * column - 3] == 0 ){
-
-		if(counter % 2 == 0){
-
-			table[13][4 * column - 3] = elementPlayerOne;
-			table[13][4 * column - 2] = elementPlayerOne;
-			table[13][4 * column - 1] = elementPlayerOne;
-		}
-		else{
-
-			table[13][4 * column - 3] = elementPlayerTwo;
-			table[13][4 * column - 2] = elementPlayerTwo;
-			table[13][4 * column - 1] = elementPlayerTwo;
+			if(counter % 2 == 0){
+	
+				table[15][4 * column - 3] = elementPlayerOne;
+				table[15][4 * column - 2] = elementPlayerOne;
+				table[15][4 * column - 1] = elementPlayerOne;
+				break;
+			}
+			else{
+	
+				table[15][4 * column - 3] = elementPlayerTwo;
+				table[15][4 * column - 2] = elementPlayerTwo;
+				table[15][4 * column - 1] = elementPlayerTwo;
+				break;
+			}
 		}
 	}
-	else if( table[11][4 * column - 3] == 0 ){
 
-		if(counter % 2 == 0){
-
-			table[11][4 * column - 3] = elementPlayerOne;
-			table[11][4 * column - 2] = elementPlayerOne;
-			table[11][4 * column - 1] = elementPlayerOne;
-		}
-		else{
-
-			table[11][4 * column - 3] = elementPlayerTwo;
-			table[11][4 * column - 2] = elementPlayerTwo;
-			table[11][4 * column - 1] = elementPlayerTwo;
-		}
-	}
-	else if( table[9][4 * column - 3] == 0 ){
-
-		if(counter % 2 == 0){
-
-			table[9][4 * column - 3] = elementPlayerOne;
-			table[9][4 * column - 2] = elementPlayerOne;
-			table[9][4 * column - 1] = elementPlayerOne;
-		}
-		else{
-
-			table[9][4 * column - 3] = elementPlayerTwo;
-			table[9][4 * column - 2] = elementPlayerTwo;
-			table[9][4 * column - 1] = elementPlayerTwo;
-		}
-	}
-	else if( table[7][4 * column - 3] == 0 ){
-
-		if(counter % 2 == 0){
-
-			table[7][4 * column - 3] = elementPlayerOne;
-			table[7][4 * column - 2] = elementPlayerOne;
-			table[7][4 * column - 1] = elementPlayerOne;
-		}
-		else{
-
-			table[7][4 * column - 3] = elementPlayerTwo;
-			table[7][4 * column - 2] = elementPlayerTwo;
-			table[7][4 * column - 1] = elementPlayerTwo;
-		}
-	}
-	else if( table[5][4 * column - 3] == 0 ){
-
-		if(counter % 2 == 0){
-
-			table[5][4 * column - 3] = elementPlayerOne;
-			table[5][4 * column - 2] = elementPlayerOne;
-			table[5][4 * column - 1] = elementPlayerOne;
-		}
-		else{
-
-			table[5][4 * column - 3] = elementPlayerTwo;
-			table[5][4 * column - 2] = elementPlayerTwo;
-			table[5][4 * column - 1] = elementPlayerTwo;
-		}
-	}
-	else if( table[3][4 * column - 3] == 0 ){
-
-		if(counter % 2 == 0){
-
-			table[3][4 * column - 3] = elementPlayerOne;
-			table[3][4 * column - 2] = elementPlayerOne;
-			table[3][4 * column - 1] = elementPlayerOne;
-		}
-		else{
-
-			table[3][4 * column - 3] = elementPlayerTwo;
-			table[3][4 * column - 2] = elementPlayerTwo;
-			table[3][4 * column - 1] = elementPlayerTwo;
-		}
-	}
-	else if( table[1][4 * column - 3] == 0 ){
-
-		if(counter % 2 == 0){
-
-			table[1][4 * column - 3] = elementPlayerOne;
-			table[1][4 * column - 2] = elementPlayerOne;
-			table[1][4 * column - 1] = elementPlayerOne;
-		}
-		else{
-
-			table[1][4 * column - 3] = elementPlayerTwo;
-			table[1][4 * column - 2] = elementPlayerTwo;
-			table[1][4 * column - 1] = elementPlayerTwo;
-		}
-	}
 	counter++;
 	system("cls");
 	print();
