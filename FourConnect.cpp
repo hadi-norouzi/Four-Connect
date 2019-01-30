@@ -21,10 +21,10 @@ int choosePlayerColor();
 
 enum color{
 
-	green = 10,
-	blue = 9,
-	red = 4,
-	yellow = 6,
+	green = 34,
+	blue = 17,
+	red = 68,
+	yellow = 102,
 	white = 7
 };
 
@@ -60,27 +60,28 @@ int main(){
 
 	createTable();
 
-	if(fill() == 1){
+		
+		if(fill() == 1){
+		
+			cout << "\nplayer ";
+			SetConsoleTextAttribute(hConsole, 0 | colorOfPlayerOne);
+			cout << elementPlayerOne << elementPlayerOne << elementPlayerOne;
+			SetConsoleTextAttribute(hConsole, 0 | white);
+			cout << " Winner";
+			scorePlayerOne++;
+		}
+		
+		if(fill() == 2){
 
-		cout << "\nplayer ";
-		SetConsoleTextAttribute(hConsole, 0 | colorOfPlayerOne);
-		cout << elementPlayerOne << elementPlayerOne << elementPlayerOne;
-		SetConsoleTextAttribute(hConsole, 0 | white);
-		cout << " Winner";
-		scorePlayerOne++;
-	}
-	else if(fill() == 2){
-
-		cout << "\nplayer ";
-		SetConsoleTextAttribute(hConsole, 0 | colorOfPlayerTwo);
-		cout << elementPlayerTwo << elementPlayerTwo << elementPlayerTwo ;
-		SetConsoleTextAttribute(hConsole, 0 | white);
-		cout << " Winner";
-		scorePlayerTwo++;
-	}
-
-
-
+			cout << "\nplayer ";
+			SetConsoleTextAttribute(hConsole, 0 | colorOfPlayerTwo);
+			cout << elementPlayerTwo << elementPlayerTwo << elementPlayerTwo ;
+			SetConsoleTextAttribute(hConsole, 0 | white);
+			cout << " Winner";
+			scorePlayerTwo++;
+			
+			}
+	
 	cout << "\n\n\nPlay Again ? (y/n) ";
 	cin >> answer;
 
@@ -319,10 +320,20 @@ int fill(){
 
 	int column,counter = 0;
 	char answer;
+	
+	if(horizontalCheck() == 1 || verticalCheck() == 1 || diagonalCheck() == 1){
+
+			return 1;
+	}
+	else if(horizontalCheck() == 2 || verticalCheck() == 2 || diagonalCheck() == 2){
+
+			return 2;
+	}
 
 	print();
 
 	while(1){
+		
 
 		cout << "\nEnter a column  : "; //Enter a Number of Columns
 		cin >> column;
@@ -342,139 +353,41 @@ int fill(){
 		if(answer == 'y')
 			exit(0);
 	}
+	
+	for(int i = 15 ; i > 0; i-=2){
+		
+		if( table[i][4 * column - 3] == 0){
 
-	if( table[15][4 * column - 3] == 0){
-
-		if(counter % 2 == 0){
-
-			table[15][4 * column - 3] = elementPlayerOne;
-			table[15][4 * column - 2] = elementPlayerOne;
-			table[15][4 * column - 1] = elementPlayerOne;
-		}
-		else{
-
-			table[15][4 * column - 3] = elementPlayerTwo;
-			table[15][4 * column - 2] = elementPlayerTwo;
-			table[15][4 * column - 1] = elementPlayerTwo;
-		}
-	}
-	else if( table[13][4 * column - 3] == 0 ){
-
-		if(counter % 2 == 0){
-
-			table[13][4 * column - 3] = elementPlayerOne;
-			table[13][4 * column - 2] = elementPlayerOne;
-			table[13][4 * column - 1] = elementPlayerOne;
-		}
-		else{
-
-			table[13][4 * column - 3] = elementPlayerTwo;
-			table[13][4 * column - 2] = elementPlayerTwo;
-			table[13][4 * column - 1] = elementPlayerTwo;
+			if(counter % 2 == 0){
+	
+				table[i][4 * column - 3] = elementPlayerOne;
+				table[i][4 * column - 2] = elementPlayerOne;
+				table[i][4 * column - 1] = elementPlayerOne;
+				break;
+			}
+			else{
+	
+				table[i][4 * column - 3] = elementPlayerTwo;
+				table[i][4 * column - 2] = elementPlayerTwo;
+				table[i][4 * column - 1] = elementPlayerTwo;
+				break;
+			}
 		}
 	}
-	else if( table[11][4 * column - 3] == 0 ){
 
-		if(counter % 2 == 0){
-
-			table[11][4 * column - 3] = elementPlayerOne;
-			table[11][4 * column - 2] = elementPlayerOne;
-			table[11][4 * column - 1] = elementPlayerOne;
-		}
-		else{
-
-			table[11][4 * column - 3] = elementPlayerTwo;
-			table[11][4 * column - 2] = elementPlayerTwo;
-			table[11][4 * column - 1] = elementPlayerTwo;
-		}
-	}
-	else if( table[9][4 * column - 3] == 0 ){
-
-		if(counter % 2 == 0){
-
-			table[9][4 * column - 3] = elementPlayerOne;
-			table[9][4 * column - 2] = elementPlayerOne;
-			table[9][4 * column - 1] = elementPlayerOne;
-		}
-		else{
-
-			table[9][4 * column - 3] = elementPlayerTwo;
-			table[9][4 * column - 2] = elementPlayerTwo;
-			table[9][4 * column - 1] = elementPlayerTwo;
-		}
-	}
-	else if( table[7][4 * column - 3] == 0 ){
-
-		if(counter % 2 == 0){
-
-			table[7][4 * column - 3] = elementPlayerOne;
-			table[7][4 * column - 2] = elementPlayerOne;
-			table[7][4 * column - 1] = elementPlayerOne;
-		}
-		else{
-
-			table[7][4 * column - 3] = elementPlayerTwo;
-			table[7][4 * column - 2] = elementPlayerTwo;
-			table[7][4 * column - 1] = elementPlayerTwo;
-		}
-	}
-	else if( table[5][4 * column - 3] == 0 ){
-
-		if(counter % 2 == 0){
-
-			table[5][4 * column - 3] = elementPlayerOne;
-			table[5][4 * column - 2] = elementPlayerOne;
-			table[5][4 * column - 1] = elementPlayerOne;
-		}
-		else{
-
-			table[5][4 * column - 3] = elementPlayerTwo;
-			table[5][4 * column - 2] = elementPlayerTwo;
-			table[5][4 * column - 1] = elementPlayerTwo;
-		}
-	}
-	else if( table[3][4 * column - 3] == 0 ){
-
-		if(counter % 2 == 0){
-
-			table[3][4 * column - 3] = elementPlayerOne;
-			table[3][4 * column - 2] = elementPlayerOne;
-			table[3][4 * column - 1] = elementPlayerOne;
-		}
-		else{
-
-			table[3][4 * column - 3] = elementPlayerTwo;
-			table[3][4 * column - 2] = elementPlayerTwo;
-			table[3][4 * column - 1] = elementPlayerTwo;
-		}
-	}
-	else if( table[1][4 * column - 3] == 0 ){
-
-		if(counter % 2 == 0){
-
-			table[1][4 * column - 3] = elementPlayerOne;
-			table[1][4 * column - 2] = elementPlayerOne;
-			table[1][4 * column - 1] = elementPlayerOne;
-		}
-		else{
-
-			table[1][4 * column - 3] = elementPlayerTwo;
-			table[1][4 * column - 2] = elementPlayerTwo;
-			table[1][4 * column - 1] = elementPlayerTwo;
-		}
-	}
 	counter++;
 	system("cls");
 	print();
-
-		if(horizontalCheck() == 1 || verticalCheck() == 1 || diagonalCheck() == 1){
+	
+	if(horizontalCheck() == 1 || verticalCheck() == 1 || diagonalCheck() == 1){
 
 			return 1;
-		}
-		else if(horizontalCheck() == 2 || verticalCheck() == 2 || diagonalCheck() == 2){
+	}
+	else if(horizontalCheck() == 2 || verticalCheck() == 2 || diagonalCheck() == 2){
 
 			return 2;
-		}
+	}
+
 	}
 }
 
