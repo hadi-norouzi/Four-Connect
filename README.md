@@ -1,3 +1,4 @@
 # Four-Connect
 Four Connect Game with c++ in console
-using windows.h library
+This Game is my university project for Computer Basics Course
+Compile this in windows with g++
